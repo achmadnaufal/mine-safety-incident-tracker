@@ -45,3 +45,17 @@ mine-safety-incident-tracker/
 ## License
 
 MIT License — free to use, modify, and distribute.
+
+## New: Incident Severity Analyzer
+
+Track and analyze safety incident patterns:
+
+```python
+from src.analytics.incident_severity_analyzer import SeverityAnalyzer
+
+analyzer = SeverityAnalyzer()
+analyzer.add_incident('2026-03-01', 'High', 'Equipment failure', injured=2)
+distribution = analyzer.get_severity_distribution()
+print(f'Critical incidents: {distribution["Critical"]}')
+```
+
