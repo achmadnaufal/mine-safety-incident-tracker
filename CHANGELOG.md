@@ -1,5 +1,20 @@
 # Changelog
 
+## [2.7.0] - 2026-03-26
+
+### Added
+- **SafetyLeadingIndicatorTracker** (`src/analytics/safety_leading_indicator_tracker.py`) — ICMM-aligned proactive safety metrics
+  - 7 leading indicators: safety observations, near-miss reporting, critical risk verifications, training compliance, pre-shift inspections, toolbox talks, action close-out
+  - Weighted Safety Health Index (SHI): 0–100 composite score
+  - RAG status per indicator and overall: GREEN (≥80) / AMBER (60–79) / RED (<60)
+  - Critical risk verifications weighted most heavily (25%) — highest predictor of incidents
+  - Trend tracking: SHI delta vs prior period
+  - Priority action generation: one-line corrective action per RED/AMBER indicator
+  - `score_portfolio()`: multi-crew scoring sorted by SHI descending
+  - `site_summary()`: aggregate RAG distribution, avg SHI, most common RED indicator
+  - Custom weight override with validation
+- Unit tests: 13 new tests in `tests/test_safety_leading_indicator_tracker.py`
+
 ## [2.6.0] - 2026-03-23
 
 ### Added
