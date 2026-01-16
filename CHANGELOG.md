@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.8.0] - 2026-03-30
+
+### Added
+- **PPE Compliance Tracker** (`src/analytics/ppe_compliance_tracker.py`) — zone-specific PPE compliance tracking per Indonesian ESDM and ICMM standards
+  - 5 mine zones: open_cut, underground, wash_plant, workshop, control_room with mandatory PPE requirements
+  - 7 PPE categories: head, eye, hearing, foot, body, hand, respiratory (with severity weights)
+  - `InspectionRecord` dataclass with full input validation (zone, ppe item, shift)
+  - `ComplianceScore`: full/partial compliance, missing PPE list, severity-weighted score (0–100), risk level (OK/LOW/MODERATE/HIGH/CRITICAL)
+  - `log_inspection()` / `log_batch()`: record management
+  - `daily_report()`: compliance rate, violations, alerts when below threshold, most-missed PPE
+  - `worker_history()`: per-worker compliance trend, recurring missing PPE detection
+  - `zone_summary()`: all-zone compliance ranking sorted worst-first
+- **Unit tests** — 37 new tests in `tests/test_ppe_compliance_tracker.py`
+
+### References
+- Kepmen ESDM 1827K/30/MEM/2018 Indonesian Mine Safety Technical Guidelines.
+- ICMM (2019) Health and Safety: Critical Control Management Guide.
+- ILO (2022) Safety and Health in Mining Guidelines, 2nd ed.
+
 ## [2.7.0] - 2026-03-26
 
 ### Added
