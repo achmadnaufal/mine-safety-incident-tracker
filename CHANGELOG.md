@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.9.0] - 2026-04-01
+
+### Added
+- **Shift Handover Risk Briefing Generator** (`src/analytics/shift_handover_risk_briefing.py`) — structured risk briefings for mine shift handovers per ICMM CCM and ESDM 1827K/2018
+  - `HazardItem` dataclass: risk level (LOW/MEDIUM/HIGH/CRITICAL), control status (ACTIVE/PARTIAL/FAILED/PENDING_VERIFICATION), responsible person, critical control name
+  - `EquipmentFlag` dataclass: equipment defects with operational restrictions and IMMEDIATE/DEFERRED/MONITOR priority
+  - `IsolationRecord` dataclass: area isolations and exclusion zones with IN_PLACE/REMOVED/PARTIAL status
+  - `ActionItem` dataclass: open action items with OPEN/IN_PROGRESS/CLOSED lifecycle
+  - `ShiftHandoverBriefing.generate()`: full structured briefing dict — critical alerts, failed control list, hazards sorted by risk, equipment flags, active isolations, open actions
+  - `render_text()`: human-readable text form for physical handover forms
+  - Overall risk level auto-computed as maximum hazard/equipment priority
+  - References: ICMM CCM Guide (2019); Kepmen ESDM 1827K/2018 §§42–43; MSHA 30 CFR 56.18002
+- **Unit tests** — 19 new tests in `tests/test_shift_handover_risk_briefing.py` (all passing)
+
 ## [2.8.0] - 2026-03-30
 
 ### Added
