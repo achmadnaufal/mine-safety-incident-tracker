@@ -3,6 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/python-3.9%2B-blue?style=flat-square&logo=python" alt="Python 3.9+">
   <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="MIT License">
+  <img src="https://img.shields.io/github/last-commit/achmadnaufal/mine-safety-incident-tracker?style=flat-square" alt="Last Commit">
   <img src="https://img.shields.io/badge/domain-Mining%20Safety-c0392b?style=flat-square" alt="Mining Safety">
   <img src="https://img.shields.io/badge/framework-ICMM%20Safety-orange?style=flat-square" alt="ICMM">
   <img src="https://img.shields.io/badge/tests-passing-brightgreen?style=flat-square" alt="Tests">
@@ -49,6 +50,20 @@ print(f"Lost-Time Injuries   : {report['lti_count']}")
 print(f"LTIFR                : {report['ltifr']:.2f}")
 print(f"Top Hazard Location  : {report['top_location']}")
 ```
+
+## Step-by-Step Usage
+
+```bash
+# Step 1: Install
+pip install -r requirements.txt
+
+# Step 2: Run the demo
+python3 demo/run_demo.py
+
+# Step 3: Use in production code (see below)
+```
+
+---
 
 ### Near-Miss Tracking
 
@@ -100,20 +115,59 @@ graph TD
 
 ---
 
-## 📊 Demo
-
-See [`demo/sample_output.txt`](demo/sample_output.txt) for a full Q1 2026 safety report for Pit-A North with 47 incidents, PPE compliance breakdown, and auto-generated corrective actions.
+## 📊 Example Output
 
 ```
-📋 INCIDENT SUMMARY — Pit-A North | Q1 2026
-  Total Incidents         : 47       (▼ -12% vs Q4 2025 ✅)
-  Lost-Time Injuries (LTI): 3
-  LTI Frequency Rate      : 1.82     (benchmark: < 2.5 ✅)
-  Near Misses             : 18       (▲ +20% — better reporting culture ✅)
+$ python3 demo/run_demo.py
+================================================================
+  Mine Safety Incident Tracker — Demo
+  Site: Pit-A North | Period: Q1 2026
+================================================================
 
-⚠️ TOP LOCATION: Haul Road (14 incidents)
-🎯 #1 Action: Speed restriction enforcement + blind corner signage [HIGH]
+✓ Loaded 20 incident records from sample_incidents.csv
+
+Incident Summary:
+  Site                  : Pit-A North
+  Total events logged   : 20
+  Cumulative risk score : 58
+  Top hazard type       : Near Collision
+  Top location          : Haul Road
+  Night shift events    : 30%
+
+Severity Distribution:
+  Critical   ████                   4
+  High       █████████              9
+  Medium     ████                   4
+  Low        ███                    3
+
+Hazard Frequency:
+  Near Collision            : 5
+  Slip/Trip                 : 3
+  Falling Object            : 2
+  Ground Instability        : 2
+  Equipment Malfunction     : 2
+
+Top Recommended Corrective Actions:
+  1. [HIGH] Implement traffic management plan at Haul Road: segregate
+     haul trucks from light vehicles, add signage at blind spots.
+  2. [HIGH] Cumulative risk score exceeds threshold (50). Schedule
+     emergency safety stand-down within 48 hours.
+
+PPE Compliance Report (2026-03-11):
+  Workers inspected     : 8
+  Fully compliant       : 3
+  Compliance rate       : 37.5%
+  Most missed PPE       : hearing (×4), eye (×4), foot (×1)
+
+⚠️  ALERT: Site compliance 37.5% below target 95.0%
+⚠️  CRITICAL: 4 worker(s) missing high-risk PPE
+
+================================================================
+  ✅ Demo complete
+================================================================
 ```
+
+See [`demo/sample_output.txt`](demo/sample_output.txt) for a full Q1 2026 safety report with 47 incidents, PPE breakdown, and corrective actions.
 
 ---
 
@@ -167,6 +221,17 @@ mine-safety-incident-tracker/
 ## 🏷️ Near-Miss Hazard Types
 
 `Near Collision` · `Falling Object` · `Slip/Trip` · `Equipment Malfunction` · `Electrical Hazard` · `Ground Instability` · `Dust/Gas Exposure` · `Blast Proximity` · `Unsecured Load` · `Other`
+
+---
+
+## 🛠️ Tech Stack
+
+| Tool | Purpose |
+|---|---|
+| **Python 3.9+** | Core language |
+| **pandas** | Incident data aggregation |
+| **numpy** | Statistical risk calculations |
+| **pytest** | Unit testing (30+ tests) |
 
 ---
 
