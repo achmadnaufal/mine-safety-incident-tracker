@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.10.0] - 2026-04-03
+
+### Added
+- **GasMonitoringThresholdChecker** (`src/gas_monitoring_threshold_checker.py`) — Evaluates mine gas sensor readings (CH₄, CO, CO₂, O₂, H₂S, NO₂, SO₂) against 4-level alert thresholds (Advisory/Warning/Action/Evacuation) for underground coal, open-cut coal, and underground metal mines. Includes shift report generator with compliance status, evacuation flags, and ranked recommendations. Aligned with Australian Qld Coal Mining Safety & Health Regulation 2017 and US MSHA 30 CFR Part 75.
+- **Unit tests** — 33 tests in `tests/test_gas_monitoring_threshold_checker.py`.
+
 ## [2.9.0] - 2026-04-01
 
 ### Added
