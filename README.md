@@ -102,15 +102,27 @@ graph TD
     B --> C[SeverityAnalyzer\nWeighted severity scoring\nLow=1 · Med=2 · High=3 · Crit=5]
     B --> D[NearMissTracker\nProactive hazard logging\nRisk score accumulation]
     B --> E[PPEComplianceTracker\nZone-specific rules\nThreshold alerts]
+    B --> I[EmergencyResponseEvaluator\nDrill scoring & gap analysis]
+    B --> J[SafetyLeadingIndicatorTracker\nLeading vs lagging KPIs]
+    B --> K[ShiftHandoverRiskBriefing\nShift-change risk summaries]
+    B --> L[GasMonitoringThresholdChecker\nReal-time gas level alerts]
     C --> F[RootCauseAnalyzer\nStructured RCA categories\nCorrectiveAction engine]
     D --> F
     E --> F
+    I --> G
+    J --> G
+    K --> G
+    L --> G
     F --> G[KPI Engine\nLTIFR · Near-miss rate\nTrend analysis · Benchmarks]
     G --> H[📊 Safety Report\nQ-o-Q trends · Priority actions\nPPE gaps · Location heat map]
 
     style A fill:#c0392b,color:#fff
     style H fill:#0366d6,color:#fff
     style F fill:#e67e22,color:#fff
+    style I fill:#8e44ad,color:#fff
+    style J fill:#27ae60,color:#fff
+    style K fill:#2980b9,color:#fff
+    style L fill:#d35400,color:#fff
 ```
 
 ---
@@ -178,15 +190,18 @@ mine-safety-incident-tracker/
 ├── src/
 │   ├── main.py                           # SafetyIncidentTracker — core engine
 │   ├── data_generator.py                 # Synthetic incident data generator
-│   ├── safety_metrics.py                 # LTIFR, severity index calculations
+│   ├── gas_monitoring_threshold_checker.py # Gas concentration monitoring
 │   └── analytics/
 │       ├── incident_severity_analyzer.py # Weighted severity scoring
 │       ├── near_miss_tracker.py          # Near-miss log + risk scoring
-│       └── ppe_compliance_tracker.py     # Zone-specific PPE rules & reports
+│       ├── ppe_compliance_tracker.py     # Zone-specific PPE rules & reports
+│       ├── emergency_response_evaluator.py # Drill scoring & gap analysis
+│       ├── safety_leading_indicator_tracker.py # Leading vs lagging KPIs
+│       └── shift_handover_risk_briefing.py # Shift-change risk summaries
 ├── data/                                 # Incident CSV/Excel data (gitignored)
 ├── demo/                                 # Sample analysis outputs
 ├── examples/                             # End-to-end usage examples
-├── tests/                                # pytest unit tests
+├── tests/                                # pytest unit tests (137 tests)
 ├── requirements.txt
 ├── CHANGELOG.md
 └── CONTRIBUTING.md
@@ -202,6 +217,10 @@ mine-safety-incident-tracker/
 | `SeverityAnalyzer` | Weighted severity scoring (Low=1, Med=2, High=3, Critical=5) |
 | `NearMissTracker` | Log near-miss events with hazard taxonomy and risk accumulation |
 | `PPEComplianceTracker` | Zone-based PPE rules, daily compliance rate, threshold alerts |
+| `EmergencyResponseEvaluator` | Drill performance scoring, response time analysis, gap identification |
+| `SafetyLeadingIndicatorTracker` | Leading vs lagging safety KPI tracking and trend detection |
+| `ShiftHandoverRiskBriefing` | Shift-change risk summaries with outstanding hazard carry-over |
+| `GasMonitoringThresholdChecker` | Real-time gas concentration monitoring and threshold alerts |
 | `RootCauseAnalyzer` | RCA category frequency analysis and corrective action prioritization |
 | `SafetyMetrics` | LTIFR, TRIFR, near-miss rate, trend analysis vs industry benchmarks |
 
