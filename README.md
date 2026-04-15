@@ -254,10 +254,74 @@ mine-safety-incident-tracker/
 
 ---
 
-## 🧪 Testing
+## 🧪 Running Tests
 
 ```bash
+# Install dependencies first
+pip install -r requirements.txt
+
+# Run all tests with verbose output
 pytest tests/ -v
+
+# Run with coverage report
+pytest tests/ -v --tb=short
+
+# Run a specific test module
+pytest tests/test_incident_tracker.py -v
+pytest tests/test_incident_severity_analyzer.py -v
+pytest tests/test_safety_metrics_extended.py -v
+pytest tests/test_trend_and_reporting.py -v
+```
+
+Test files and what they cover:
+
+| File | Description |
+|------|-------------|
+| `tests/test_incident_tracker.py` | `SafetyIncidentTracker`: load, validate, preprocess, analyze, run, export |
+| `tests/test_incident_severity_analyzer.py` | `SeverityAnalyzer`: recording, validation, distribution, scoring, immutability |
+| `tests/test_safety_metrics.py` | `SafetyMetricsCalculator`: TRIFR, LTIFR, culture assessment |
+| `tests/test_safety_metrics_extended.py` | Extended KPI accuracy, edge cases, reporting structure |
+| `tests/test_trend_and_reporting.py` | Multi-period trend analysis and reporting consistency |
+| `tests/test_near_miss_tracker.py` | `NearMissTracker`: event recording, risk summary, recommendations |
+| `tests/test_ppe_compliance_tracker.py` | `PPEComplianceTracker`: compliance scoring, daily reports, zone summary |
+| `tests/test_gas_monitoring_threshold_checker.py` | Gas threshold alert levels and shift report generation |
+| `tests/test_shift_handover_risk_briefing.py` | Shift handover briefing generation and risk escalation |
+| `tests/test_safety_leading_indicator_tracker.py` | Leading indicator SHI scoring and RAG status |
+
+---
+
+## 📋 Sample Data
+
+`demo/sample_data.csv` contains 20 realistic Indonesian coal-mining incident records with the following columns:
+
+| Column | Description |
+|--------|-------------|
+| `incident_id` | Unique identifier (e.g. `INC-2026-001`) |
+| `date` | Incident date (YYYY-MM-DD) |
+| `time` | Time of incident (HH:MM) |
+| `location` | Specific location (e.g. `Haul Road Junction A`) |
+| `pit_name` | Pit or area name (e.g. `Pit-A North`) |
+| `incident_type` | Classification (e.g. `Vehicle Collision`, `Ground Collapse`) |
+| `severity` | `Low` / `Medium` / `High` / `Critical` |
+| `description` | Full free-text incident description |
+| `equipment_involved` | Equipment IDs involved |
+| `injuries` | Number of persons injured |
+| `lost_time_days` | Lost working days due to injury |
+| `root_cause` | Primary root cause summary |
+| `corrective_action` | Corrective actions taken or planned |
+| `status` | `Open` / `Closed` / `Under Investigation` / `In Progress` |
+
+Quick load example:
+
+```python
+from src.main import SafetyIncidentTracker
+
+tracker = SafetyIncidentTracker()
+result = tracker.run("demo/sample_data.csv")
+
+print(f"Total incidents    : {result['total_records']}")
+print(f"Severity breakdown : {result['severity_distribution']}")
+print(f"Incident types     : {result['incident_type_counts']}")
 ```
 
 ---

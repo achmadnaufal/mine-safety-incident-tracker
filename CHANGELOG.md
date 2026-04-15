@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.2.0] - 2026-04-16
+
+### Added
+- **Comprehensive docstrings** across all public classes and functions in `src/main.py`, `safety_metrics.py`, and `src/analytics/incident_severity_analyzer.py` with usage examples and argument/return documentation.
+- **Enhanced input validation** in `SafetyIncidentTracker.validate()`: invalid severity levels, future dates, missing/blank location data, and duplicate `incident_id` values now raise descriptive `ValueError` exceptions.
+- **Enhanced input validation** in `SeverityAnalyzer.add_incident()`: invalid severity, negative injured count, non-ISO date format, and duplicate `incident_id` now raise descriptive `ValueError` exceptions.
+- **Type hints** added to all public function signatures throughout `src/main.py`, `safety_metrics.py`, and `src/analytics/incident_severity_analyzer.py`.
+- **Immutable data patterns**: `SafetyIncidentTracker.preprocess()` returns a new DataFrame without mutating input; `SeverityAnalyzer.incidents` property returns a copy of the internal list; `SafetyMetricsCalculator.analyze()` returns a new dict each call.
+- **Additional analysis methods** on `SeverityAnalyzer`: `calculate_weighted_risk_score()`, `get_incidents_by_severity()`, `get_top_locations()`, `summary()`.
+- **New test files**:
+  - `tests/__init__.py` — marks directory as a Python package.
+  - `tests/test_incident_tracker.py` — 40+ tests covering `SafetyIncidentTracker` load, validate, preprocess, analyze, run, and export.
+  - `tests/test_incident_severity_analyzer.py` — 35+ tests covering `SeverityAnalyzer` recording, validation, distribution, scoring, and immutability.
+  - `tests/test_safety_metrics_extended.py` — 30+ tests covering `SafetyMetricsCalculator` validation, KPI calculations, culture assessment, and reporting structure.
+  - `tests/test_trend_and_reporting.py` — 20+ tests for multi-period trend analysis and reporting dict consistency.
+- **`demo/sample_data.csv`** — 20 realistic Indonesian coal-mining incident rows covering all severity levels, multiple pit names (Pit-A North, Pit-B South, Coal Processing Plant), incident types (vehicle collision, ground collapse, gas detection, conveyor entanglement, PPE violation, blast exclusion breach), with full metadata columns: `incident_id`, `date`, `time`, `location`, `pit_name`, `incident_type`, `severity`, `description`, `equipment_involved`, `injuries`, `lost_time_days`, `root_cause`, `corrective_action`, `status`.
+
+### Improved
+- `SafetyIncidentTracker.run()` now preprocesses before validating so column-name normalisation is applied before required-column checks.
+- `SafetyMetricsCalculator` now validates that `mine_name` is not blank in addition to the existing numeric range checks.
+- README: added test-running instructions, project structure table, and sample data quick-start section.
+
+---
+
 ## [2.10.0] - 2026-04-03
 
 ### Added
