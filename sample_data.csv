@@ -1,0 +1,21 @@
+incident_id,date,mine_site,type,severity,hours_lost,cause,corrective_action
+INC-2026-001,2026-01-05,Pit-A North,Near Collision,Critical,0,Low visibility at haul road junction,Speed restriction enforced + signage installed
+INC-2026-002,2026-01-08,Pit-A North,Falling Object,High,4,Loose rock dislodged from feeder platform,Barricade erected + feeder deck inspected
+INC-2026-003,2026-01-12,Pit-B South,Ground Instability,High,8,Minor wall slump at Bench-7 southeast face,Geotechnical team inspected + catch-berm raised
+INC-2026-004,2026-01-15,Workshop,Equipment Malfunction,Medium,2,Hydraulic line burst on excavator EX-04,Line replaced + hydraulic pressure test completed
+INC-2026-005,2026-01-19,Pit-B South,Near Collision,High,0,Two trucks merged at Pit-B main ramp,Traffic marshal posted + radio protocol updated
+INC-2026-006,2026-01-22,Conveyor Belt,Unsecured Load,Medium,3,Oversize boulder bypassed grizzly screen,Grizzly bars inspected + feed protocol tightened
+INC-2026-007,2026-01-26,Explosives Magazine,Blast Proximity,Critical,24,Maintenance crew entered exclusion zone,Blast clearance checklist reissued + roll-call added
+INC-2026-008,2026-02-03,Stockpile,Slip/Trip,Low,1,Wet stockpile surface during sampling,Anti-slip matting installed + protocol updated
+INC-2026-009,2026-02-07,Pit-A North,Dust/Gas Exposure,Medium,4,Diesel particulate spike during drill shift,Dust suppression water cart deployed
+INC-2026-010,2026-02-10,Pit-A North,Near Collision,High,0,Grader reversed without spotter on haul route,Reverse camera inspected + spotter protocol enforced
+INC-2026-011,2026-02-14,Workshop,Electrical Hazard,High,6,Arc flash near exposed terminal during testing,PPE audit + lock-out procedure updated
+INC-2026-012,2026-02-18,Crusher Area,Falling Object,Medium,2,Suspended screen panel hairline crack,Panel replaced + weekly inspection scheduled
+INC-2026-013,2026-02-22,Pit-B South,Ground Instability,Critical,16,Tension crack 15cm wide behind crest Bench-9,Area evacuated + monitoring prisms installed
+INC-2026-014,2026-02-25,Stockpile,Slip/Trip,High,5,Reclaim dozer slid on wet slope,Slope angle reduced + dozer approach rules updated
+INC-2026-015,2026-03-01,Pit-C West,Near Collision,High,0,Light vehicle in blind spot of rigid truck,RFID proximity alert system installed
+INC-2026-016,2026-03-05,Explosives Magazine,Blast Proximity,Critical,12,Detonator cap unattended outside storage,Explosives audit + access logs reviewed
+INC-2026-017,2026-03-08,Conveyor Belt,Equipment Malfunction,Low,1,Belt tracking sensor failure,Sensor replaced + auto-tracking calibrated
+INC-2026-018,2026-03-12,Workshop,Slip/Trip,Low,1,Hydraulic fluid spill near EX-07 bay,Spill kit restocked + absorbent mat installed
+INC-2026-019,2026-03-15,Pit-A North,Dust/Gas Exposure,High,3,Ammonia odor during ANFO mixing,Area ventilated + gas monitor calibrated
+INC-2026-020,2026-03-19,Pit-B South,Near Collision,High,0,Water truck and coal hauler at weigh bridge,Traffic signal upgraded at weigh bridge
